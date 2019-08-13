@@ -1,3 +1,0 @@
-#How to move a binary file to a executing path so you can use it as a command anywhere
-
-mv /path/to/binary/file /usr/local/bin/nameofcommand
