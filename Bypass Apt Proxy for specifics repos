@@ -1,0 +1,9 @@
+#How to add proxy for apt and bypass them for some specifics repos
+
+vi /etc/apt/apt.conf
+
+Acquire::http::Proxy "http://proxy:8080";
+Acquire::http::Proxy {
+    in-house.debian.example.com DIRECT;
+    no-protocol-colon-or-slashes.example.com DIRECT;
+};
