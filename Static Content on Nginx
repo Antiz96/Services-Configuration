@@ -7,10 +7,6 @@ server {
         access_log /var/log/nginx/domain_access.log;
         error_log /var/log/nginx/domain_error.log;
 
-
-        include /etc/nginx/include/proxy_params;
-        location / { proxy_pass http://path/to/proxy_params_file/; }
-
         location /.well-known/pki-validation/gsdv.txt {
         default_type "text/html";
         alias /var/www/index.html;
