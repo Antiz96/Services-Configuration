@@ -1,7 +1,7 @@
 #Put Some Static Content in a Nginx Specific Location
 
 server {
-        listen 192.168.197.51:80;
+        listen 80;
         server_name domain;
 
         access_log /var/log/nginx/domain_access.log;
