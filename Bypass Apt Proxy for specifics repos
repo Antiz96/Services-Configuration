@@ -2,8 +2,18 @@
 
 vi /etc/apt/apt.conf
 
-Acquire::http::Proxy "http://proxy:8080";
-Acquire::http::Proxy {
-    in-house.debian.example.com DIRECT;
-    no-protocol-colon-or-slashes.example.com DIRECT;
+Acquire::ftp::Proxy "ftp://proxy.fr:port";
+Acquire::ftp::proxy {
+        urlexample DIRECT;
 };
+Acquire::http::Proxy "http://proxy.fr:port";
+Acquire::http::Proxy {
+        urlexample DIRECT;
+};
+Acquire::https::Proxy "https://proxy.fr:port";
+Acquire::https::Proxy {
+        urlexample DIRECT;
+};
+
+
+
