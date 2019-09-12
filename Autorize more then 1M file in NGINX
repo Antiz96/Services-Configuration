@@ -1,0 +1,39 @@
+#In Server Block
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        client_max_body_size 1000M;
+
+        server_name xxx;
+
+        # SSL
+        ssl_certificate /etc/nginx/ssl/xxx.crt;
+        ssl_certificate_key /etc/nginx/ssl/xxx.key;
+
+
+        # reverse proxy
+        location / {
+                proxy_redirect https://xxx https://$host;
+                proxy_set_header Host $host;
+                proxy_pass https://xxx:443;
+        }
+}
+
+#In Location Block
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+
+        server_name xxx;
+
+        # SSL
+        ssl_certificate /etc/nginx/ssl/xxx.crt;
+        ssl_certificate_key /etc/nginx/ssl/xxx.key;
+
+        location /ce {
+                client_max_body_size 1000M;
+                proxy_redirect https://xxx https://$host;
+                proxy_set_header Host $host;
+                proxy_pass https://xxx:443/ce;
+        }
+
