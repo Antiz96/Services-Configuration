@@ -7,7 +7,7 @@ server {
         access_log /var/log/nginx/domain_access.log;
         error_log /var/log/nginx/domain_error.log;
 
-        location /.well-known/pki-validation/gsdv.txt {
+        location /.well-known/pki-validation {
         default_type "text/html";
         alias /var/www/index.html;
         }
